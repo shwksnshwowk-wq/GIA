@@ -1,4 +1,0 @@
-This code includes experiments for paper "Gradient Inversion Attack for Adapter-based Federated Large Language Models"
-
-All experiments are done using Python 3.10 and PyTorch 2.3.1.
-
