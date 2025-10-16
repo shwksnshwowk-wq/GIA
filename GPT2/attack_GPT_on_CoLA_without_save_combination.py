@@ -48,9 +48,9 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # Setting the parameters
 randSeed = 1
-model_name = "/home/csluo/FL-LLM/models/GPT2-large"
-data_name = '/home/csluo/FL-LLM/datasets/cola_public/raw/in_domain_train.tsv'
-word_test_model = '/home/csluo/FL-LLM/Abiratebert_fine_tuned_cola'
+model_name = "/home/FL-LLM/models/GPT2-large"
+data_name = '/home/FL-LLM/datasets/cola_public/raw/in_domain_train.tsv'
+word_test_model = '/home/FL-LLM/Abiratebert_fine_tuned_cola'
 num_labels = 20                  # number of classes
 batch_size = [1, 2, 4, 8]        # the batch_size settings
 bert_batch_size_test = 512       # the size of the inference batch for testing using a large model
@@ -129,7 +129,7 @@ with open(result_file_save_path, 'w', newline='', encoding='utf-8') as result_fi
             attention_mask = input_encodings["attention_mask"]
             this_batch_size, max_seq_length = True_input_ids.size()
             attention_mask = attention_mask.unsqueeze(1).unsqueeze(2)  # (batch_size, 1, 1, sequence_length)
-            attention_mask = attention_mask.to(torch.float32)  # 转换为浮点类型
+            attention_mask = attention_mask.to(torch.float32)  # convert to float32
             position_ids = torch.arange(max_seq_length, dtype=torch.long, device=device).unsqueeze(0).expand(this_batch_size, -1)
             layer_output, layer_output_embeddings, layer_output_1 = model(input_ids=True_input_ids,
                                                                           position_ids=position_ids,

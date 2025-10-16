@@ -94,7 +94,7 @@ with open(result_file_save_path, 'w', newline='', encoding='utf-8') as result_fi
             attention_mask = input_encodings["attention_mask"]
             this_batch_size, max_seq_length = True_input_ids.size()
             attention_mask = attention_mask.unsqueeze(1).unsqueeze(2)  # (batch_size, 1, 1, sequence_length)
-            attention_mask = attention_mask.to(torch.float32)  # 转换为浮点类型
+            attention_mask = attention_mask.to(torch.float32)  # convert to float32
             position_ids = torch.arange(max_seq_length, dtype=torch.long, device=device).unsqueeze(0).expand(this_batch_size, -1)
             layer_output, layer_output_embeddings, layer_output_1 = model(input_ids=True_input_ids,
                                                                           position_ids=position_ids,
@@ -153,7 +153,7 @@ with open(result_file_save_path, 'w', newline='', encoding='utf-8') as result_fi
                         Token_index_all.append(vocab_size_batch_temp[is_close_in_rows[index_is_close_in_rows]])
             Token_index_all = [t.item() for t in Token_index_all]
 
-            # 利用Token_index_all来重构每个index对应的token
+            # recontruct tokens with Token_index_all
             decode_token = []
             for temp_token in Token_index_all:
                 temp_token = GPT2_tokenizer.decode([temp_token], clean_up_tokenization_spaces=True)

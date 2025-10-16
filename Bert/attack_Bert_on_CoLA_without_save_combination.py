@@ -70,9 +70,9 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # Setting the parameters
 randSeed = 1
-model_name = '/home/csluo/FL-LLM/models/bert-base-uncased'
-data_name = '/home/csluo/FL-LLM/datasets/cola_public/raw/in_domain_train.tsv'
-word_test_model = '/home/csluo/FL-LLM/Abiratebert_fine_tuned_cola'
+model_name = '/home/FL-LLM/models/bert-base-uncased'
+data_name = '/home/FL-LLM/datasets/cola_public/raw/in_domain_train.tsv'
+word_test_model = '/home/FL-LLM/Abiratebert_fine_tuned_cola'
 num_labels = 20  # number of classes
 batch_size = [1, 2, 4, 8, 16, 32]  # the batch_size settings
 bert_batch_size_test = 512  # the size of the inference batch for testing using a large model

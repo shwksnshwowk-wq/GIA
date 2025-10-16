@@ -149,7 +149,7 @@ with open(result_file_save_path, 'w', newline='', encoding='utf-8') as result_fi
                         Token_index_all.append(vocab_size_batch_temp[is_close_in_rows[index_is_close_in_rows]])
             Token_index_all = [t.item() for t in Token_index_all]
 
-            # 利用Token_index_all来重构每个index对应的token
+            # recontruct tokens with Token_index_all
             decode_token = []
             for temp_token in Token_index_all:
                 temp_token = bert_tokenizer.decode([temp_token], clean_up_tokenization_spaces=True)

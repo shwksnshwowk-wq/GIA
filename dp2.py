@@ -257,7 +257,7 @@ def main():
     max_grad_norm = 1.0
     
     # init BERT
-    model_name = "/home/csluo/FL-LLM/models/bert-base-uncased"
+    model_name = "/home/FL-LLM/models/bert-base-uncased"
     tokenizer = BertTokenizer.from_pretrained(model_name)
     
     # load local CoLA
